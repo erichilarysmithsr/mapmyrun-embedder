@@ -1,4 +1,4 @@
-=== MapMyRide Widget  ===
+=== MapMyRun Embedder  ===
 Contributors: jeffmcreynolds
 Tags: workout, tracking, mapmyride, mapmyrun, mapmyfitness, mapmyhike
 Requires at least: 2.0
