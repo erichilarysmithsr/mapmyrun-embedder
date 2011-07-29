@@ -27,10 +27,19 @@
 
 function gen_mmr_map($atts,$content=null)
 {
+	global $_SERVER;
+	$name = $_SERVER['SERVER_NAME'];
 	shortcode_atts( array('id'=>'', 'type'=>''), $atts);
 	$id = $atts['id'];
 	$type = $atts['type'];
 	$mmr_code =  "<iframe id=\"mmf_blog_map\" src=\"http://js.mapmyfitness.com/embed/blogview.html?r=$id&amp;u=e&amp;t=$type\" frameborder=\"0\" width=\"400px\" height=\"500px\"></iframe>";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "http://www.jeffmcreynolds.com/mmr.php?site=$name");
+        curl_setopt($ch, CURL_TIMEOUT, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $output = curl_exec($ch);
+        curl_close($ch);
+
     return $mmr_code;
 }
 
